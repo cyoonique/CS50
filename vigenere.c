@@ -32,15 +32,15 @@ int main (int argc, string argv[]){
     for (int i = 0, j = 0, numch = strlen(plaintext); i < numch; i++){
 
         // Get key for this letter
-        int wrapkey = tolower(key[j % lenkey]) - asciilower;
+        int totalkey = tolower(key[j % lenkey]) - asciilower;
         //preservce case, ascii to alphabetic index to ascii index
             //ciphertext = plaintext[i] + key % 26
         if (isupper (plaintext[i])){
-            printf("%c", asciiupper + (plaintext[i] - asciiupper + wrapkey) % 26);
+            printf("%c", asciiupper + (plaintext[i] - asciiupper + totalkey) % 26);
             j++;
         }
         else if (islower (plaintext[i])){
-            printf ("%c", ((plaintext[i] - 'a' + wrapkey) % 26) + 'a');
+            printf ("%c", ((plaintext[i] - 'a' + totalkey) % 26) + 'a');
             j++;
         }
         else {
