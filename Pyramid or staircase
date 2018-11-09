@@ -1,0 +1,30 @@
+import cs50
+
+"""print and validate input from user"""
+
+def main():
+    while True:
+        print('Height:', end = "")
+        pheight = cs50.get_int()
+
+        """condition to break"""
+        if pheight >= 0 or pheight <= 27:
+            break
+
+    """loop for the row"""
+    for i in range(pheight):
+        for emptyspace in range(pheight - i -1):
+            print (" ", end = "")
+        for hesh in range(i + 1):
+            print ("#", end = "")
+        ## two spaces between heshes
+        print (" " * 2, end = "")
+        
+        ## righhesh pyramid begins
+        for righthesh in range(i + 1):
+            print ("#", end = "")
+        ##execute to print in the pyramid in a row
+        print()
+
+if __name__ == "__main__":
+    main()
